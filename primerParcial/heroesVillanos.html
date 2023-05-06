@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <style>
+    /*FORMS Y CUERPO DE PAGINA*/
+    #FrmDatos {
+      border: solid black;
+      display: grid;
+      padding-right: 40px;
+      width: 1100px;
+      box-sizing: border-box;
+      align-content: space-between;
+      margin: 0 auto;
+      background-color: rgb(230, 172, 181);
+      position: fixed;
+
+      top: 5%;
+      left: 15%;
+
+    }
+
+    #FormularioAbm {
+
+      border: solid black;
+      padding-right: 40px;
+      width: 800px;
+      box-sizing: border-box;
+      align-content: center;
+      margin: 0 auto;
+      background-color: rgb(230, 172, 181);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+
+
+      top: 15%;
+      left: 25%;
+
+    }
+
+
+
+    body {
+      background-color: rgb(249, 227, 231);
+    }
+
+
+
+
+    /*BOTONES*/
+
+
+
+
+
+    .botonesFormAbm {
+      background-color: rgb(195, 90, 146);
+      font-size: medium;
+      width: 100px;
+      height: 40px;
+      cursor: pointer;
+      font-size: medium;
+      margin-left: 30px;
+
+    }
+
+
+    #btnAgregar {
+
+      margin-left: 400px;
+      margin-top: 40px;
+      background-color: rgb(195, 90, 146);
+      width: 250px;
+      height: 40px;
+      cursor: pointer;
+      font-size: medium;
+
+    }
+
+
+    #btnCalcular {
+      background-color: rgb(195, 90, 146);
+      cursor: pointer;
+      font-size: medium;
+      width: 100px;
+
+    }
+
+
+    /* INPUTS */
+    #comboBox {
+      font-size: 16px;
+      background-color: rgb(250, 223, 228);
+    }
+
+    #inputEdadProm {
+      font-size: 16px;
+      background-color: rgb(250, 223, 228);
+    }
+
+
+    /*TABLAS*/
+
+
+    #divTabla table,
+    td,
+    th,
+    tr {
+      border: solid black;
+      border-collapse: collapse;
+      margin: auto;
+      background-color: rgb(250, 223, 228);
+      border-radius: 10px 0px 0px 10px;
+    }
+
+    #divTabla {
+      margin-top: 50px;
+      margin-left: 60px;
+      margin-right: 25px;
+
+    }
+
+
+    #tabla {
+
+      width: 600px;
+      height: 300px;
+      font-size: 18px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .boton-encabezado {
+      background-color: rgb(248, 195, 203);
+      font-size: 15px;
+      border: none;
+      color: #333;
+      padding: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+
+
+    /* LABELS Y OTROS*/
+
+    .title-form {
+      font-size: 40px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .label-formDatos {
+      margin-top: 20px;
+      font-size: 20px;
+      text-align: center;
+
+    }
+
+    .label-formABM {
+      margin-top: 20px;
+      font-size: 20px;
+      margin-right: 10px;
+
+    }
+
+
+
+    .check-form {
+      margin-top: 20px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .inptDatos {
+      margin-top: 5px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      background-color: rgb(250, 223, 228);
+      flex-grow: 1;
+
+    }
+
+    select {
+      font-size: 16px;
+      width: 190px;
+      height: 25px;
+    }
+  </style>
+
+
+  <div id="FrmDatos">
+
+
+
+    <label class="title-form">Form datos</label>
+    <div class="label-formDatos">
+      <label for="comboBox">Filtrar por:</label>
+      <select id="comboBox">
+        <option value="todos">Todos</option>
+        <option value="heroes">Heroes</option>
+        <option value="villanos">Villanos</option>
+      </select>
+    </div>
+
+    <div class="label-formDatos">
+      <label for="inputEdadProm">Calcular Edad Promedio:</label>
+      <input type="text" id="inputEdadProm" value="" readonly>
+      <button id="btnCalcular">Calcular</button>
+    </div>
+
+
+    <div id="divCheckboxes" class="check-form">
+      <label>Mostrar Columnas:</label><br>
+      <label>
+        <input type="checkbox" name="checkId" value="id" id="checkId" checked>
+        ID
+      </label>
+      <label>
+
+        <input type="checkbox" name="checkNombre" value="nombre" id="checkNombre" checked>
+        Nombre
+      </label>
+      <label>
+
+        <input type="checkbox" name="checkApellido" value="apellido" id="checkApellido" checked>
+        Apellido
+      </label>
+      <label>
+        <input type="checkbox" name="checkEdad" value="edad" id="checkEdad" checked>
+        Edad
+      </label>
+      <label>
+        <input type="checkbox" name="checkalterego" value="alterego" id="checkalterego" checked>
+        Alter Ego
+      </label>
+      <label>
+        <input type="checkbox" name="checkpublicado" value="publicado" id="checkpublicado" checked>
+        Publicado
+      </label>
+      <label>
+        <input type="checkbox" name="checkciudad" value="ciudad" id="checkciudad" checked>
+        Ciudad
+      </label>
+      <label>
+        <input type="checkbox" name="checkrobos" value="robos" id="checkrobos" checked>
+        Robos
+      </label> <label>
+        <input type="checkbox" name="checkasesinatos" value="asesinatos" id="checkasesinatos" checked>
+        Asesinatos
+      </label>
+      </label> <label>
+        <input type="checkbox" name="checkenemigo" value="enemigo" id="checkenemigo" checked>
+        Enemigo
+      </label>
+    </div>
+
+    <div id="divTabla">
+
+    </div>
+
+    <div id="divAgregar">
+      <button id="btnAgregar">Agregar</button>
+    </div>
+
+    <br><br><br>
+
+  </div>
+
+
+
+
+
+
+  <div id="FormularioAbm" style="text-align: center;">
+
+    <label style="font-size: 30px; font-weight:bold; text-align:center">Formulario ABM</label><br>
+
+    <div id="divId">
+      <label class="label-formABM">Id:</label>
+      <input type="text" id="inptId" class="inptDatos" readonly><br>
+    </div>
+    <div id="divNombre">
+      <label class="label-formABM">Nombre:</label>
+      <input type="text" id="inptNombre" class="inptDatos"><br>
+    </div>
+    <div id="divApellido">
+      <label class="label-formABM">Apellido:</label>
+      <input type="text" id="inptApellido" class="inptDatos"><br>
+    </div>
+    <div id="divEdad">
+      <label class="label-formABM">Edad:</label>
+      <input type="text" id="inptEdad" class="inptDatos"><br>
+    </div>
+
+    <div id="divTipo">
+      <label class="label-formABM">Tipo:</label>
+      <select value="Tipo" id="tipoPersona" class="inptDatos">
+        <option selected disabled> </option>
+        <option>Heroe</option>
+        <option>Villano</option>
+      </select><br>
+    </div>
+
+    <div id="divciudad">
+      <label class="label-formABM">Ciudad:</label>
+      <input type="text" id="inptciudad" class="inptDatos"><br>
+    </div>
+    <div id="divalterEgo">
+      <label class="label-formABM">Alter Ego:</label>
+      <input type="text" id="inptalterEgo" class="inptDatos"><br>
+    </div>
+    <div id="divpublicado">
+      <label class="label-formABM">Publicado:</label>
+      <input type="text" id="inptpublicado" class="inptDatos"><br>
+    </div>
+    <div id="divrobos">
+      <label class="label-formABM">Robos:</label>
+      <input type="text" id="inptrobos" class="inptDatos"><br>
+    </div>
+    <div id="divasesinatos">
+      <label class="label-formABM">Asesinatos:</label>
+      <input type="text" id="inptasesinatos" class="inptDatos"><br>
+    </div>
+    <div id="divenemigo">
+      <label class="label-formABM">Enemigo:</label>
+      <input type="text" id="inptenemigo" class="inptDatos"><br>
+    </div>
+    <div>
+      <button id="btnAlta" class="botonesFormAbm">Alta</button>
+      <button id="btnBaja" class="botonesFormAbm">Baja</button>
+      <button id="btnModificar" class="botonesFormAbm">Modificar</button>
+      <button id="btnCancelar" class="botonesFormAbm">Cancelar</button>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+</body>
+<script>
+
+  let listaJson = JSON.parse('[{"id":1, "nombre":"Clark", "apellido":"Kent", "edad":45, "alterego":"Superman", "ciudad":"Metropolis","publicado":2002},{"id":2, "nombre":"Bruce", "apellido":"Wayne", "edad":35, "alterego":"Batman", "ciudad":"Gotica","publicado":20012},{"id":3, "nombre":"Bart", "apellido":"Alen", "edad":30, "alterego":"Flash", "ciudad":"Central","publicado":2017},{"id":4, "nombre":"Lex", "apellido":"Luthor", "edad":18, "enemigo":"Superman", "robos":500,"asesinatos":7},{"id":5, "nombre":"Harvey", "apellido":"Dent", "edad":20, "enemigo":"Batman", "robos":750,"asesinatos":2},{"id":666, "nombre":"Celina", "apellido":"kyle", "edad":23, "enemigo":"Batman", "robos":25,"asesinatos":1}]');
+  let arrayPersonas = new Array();
+  window.addEventListener('load', () => {
+    arrayPersonas = jsonToObjects(listaJson);
+
+    cargarTabla(arrayPersonas);
+
+    registrarEventosCheckboxes();
+    $("FormularioAbm").style.display = 'none';
+  });
+
+  class Persona {
+
+    constructor(id, nombre, apellido, edad) {
+      this.id = id;
+      this.nombre = nombre;
+      this.apellido = apellido;
+      this.edad = edad;
+    }
+    toString() {
+      return `ID: ${this.id} - Nombre: ${this.nombre} - Apellido: ${this.apellido} - Edad: ${this.edad}`;
+    }
+    toJson() {
+      return JSON.stringify({
+        id: this.id,
+        nombre: this.nombre,
+        apellido: this.apellido,
+        edad: this.edad,
+      });
+    }
+  }
+
+  class Heroe extends Persona {
+    constructor(id, nombre, apellido, edad, alterego, ciudad, publicado) {
+      super(id, nombre, apellido, edad);
+      this.alterego = alterego;
+      this.ciudad = ciudad;
+      this.publicado = publicado;
+    }
+    toString() {
+      return `${super.toString()} alter ego: ${this.alterego} - ciudad: ${this.ciudad}  - publicado: ${this.publicado}`;
+    }
+
+    toJson() {
+      const personaJson = super.toJson();
+      const heroeJson = JSON.stringify({
+        alterego: this.alterego,
+        ciudad: this.ciudad,
+        publicado: this.publicado
+      });
+      return JSON.stringify({ ...JSON.parse(personaJson), ...JSON.parse(heroeJson) });
+    }
+  }
+
+
+
+  class Villano extends Persona {
+    constructor(id, nombre, apellido, edad, enemigo, robos, asesinatos) {
+      super(id, nombre, apellido, edad);
+      this.robos = robos;
+      this.asesinatos = asesinatos;
+      this.enemigo = enemigo;
+    }
+    toString() {
+      return `${super.toString()} - enemigo: ${this.enemigo} robos: ${this.robos} - asesinatos: ${this.asesinatos}`;
+    }
+    toJson() {
+      const personaJson = super.toJson();
+      const villanoJson = JSON.stringify({
+        enemigo: this.enemigo,
+        robos: this.robos,
+        asesinatos: this.asesinatos
+
+      });
+      return JSON.stringify({ ...JSON.parse(personaJson), ...JSON.parse(villanoJson) });
+    }
+  }
+
+
+
+
+
+  //VALIDACIONES
+
+  function contieneSoloNumeros(cadena) {
+    
+    for (let i = 0; i < cadena.length; i++) {
+      if (isNaN(parseInt(cadena[i]))) {
+        alert("El valor ingresado: '" + cadena + "'' no es valido. Ingrese solo numeros");
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function contieneSoloLetras(cadena) {
+    for (let i = 0; i < cadena.length; i++) {
+      if (!isNaN(parseInt(cadena.charAt(i)))) {
+        alert("El valor ingresado: '" + cadena + "'' no es valido. Ingrese solo letras.");
+        return false;
+
+      }
+    }
+    return true;
+  }
+
+  function esNuloOVacio(valor) {
+
+    if (valor === null || valor === undefined || valor === '') {
+      alert("Error: hay un valor nulo o vacio.");
+      return true;
+    }
+
+  }
+
+  
+  function numeroNulo(valor){
+
+    if(isNaN(valor))
+    {
+      alert("Error: hay un valor numerico que esta vacio o contiene letras");
+      return true;
+    }
+   
+  }
+  
+
+  function valorMayorA(valor, mayorA) {
+    let nuevoValor = parseInt(valor);
+    if (nuevoValor > mayorA) {
+      return true;
+    }
+    else {
+      alert("La publicacion debe ser despues del 1940");
+    }
+  }
+
+  function esMayorACero(valor) {
+    if (valor > 0) {
+      return true;
+    }
+    else {
+      alert("Error: el valor ingresado no puede ser cero.");
+    }
+  }
+
+  /************************************************************************************************************************/
+
+
+  function $(id) {
+    return document.getElementById(id);
+  }
+
+
+  function jsonToObjects(listaJson) {
+
+    let personas = new Array();
+
+
+    for (let i = 0; i < listaJson.length; i++) {
+      let persona = listaJson[i];
+
+      if ('ciudad' in persona && 'alterego' in persona && 'publicado' in persona) {
+        let heroe = new Heroe(persona.id, persona.nombre, persona.apellido, persona.edad, persona.alterego, persona.ciudad, persona.publicado);
+        personas.push(heroe);
+
+      } else if ('robos' in persona && 'asesinatos' in persona && 'enemigo' in persona) {
+
+
+        let villano = new Villano(persona.id, persona.nombre, persona.apellido, persona.edad, persona.enemigo, persona.robos, persona.asesinatos);
+        personas.push(villano);
+
+      }
+    }
+    return personas;
+  }
+
+
+  /*****************************TABLA*******************************************************/
+
+  function crearTabla(arrayObjetos) {
+
+    if (!Array.isArray(arrayObjetos)) return null;
+
+    if (arrayObjetos.length > 0) {
+
+      const tabla = document.createElement("table");
+      tabla.setAttribute("id", "tabla");
+      const encabezado = crearEncabezado(arrayObjetos);
+      const cuerpoTabla = crearCuerpoTabla(arrayObjetos);
+      tabla.appendChild(encabezado);
+      tabla.appendChild(cuerpoTabla);
+
+      return tabla;
+    }
+  }
+
+  function crearEncabezado(arrayObjetos) {
+    const thead = document.createElement("thead");
+    const trThead = document.createElement("tr");
+    const keys = getKeys(arrayObjetos);
+
+    keys.forEach(key => {
+      const nuevoTh = document.createElement("th");
+      const nuevoBtn = document.createElement("button");
+      nuevoBtn.textContent = key.replace('_', '');
+
+      nuevoTh.setAttribute("id", key);
+      nuevoBtn.setAttribute("id", ("btn" + key));
+      nuevoBtn.classList.add("boton-encabezado");
+      nuevoTh.appendChild(nuevoBtn);
+      trThead.appendChild(nuevoTh);
+    });
+
+    thead.appendChild(trThead);
+
+
+    return thead;
+  }
+
+
+  function crearCuerpoTabla(arrayObjetos) {
+    const tbody = document.createElement("tbody");
+    const keys = getKeys(arrayObjetos);
+
+    arrayObjetos.forEach(obj => {
+
+      const tr = document.createElement("tr");
+      for (let key in keys) {
+        const nuevoTd = document.createElement("td");
+        nuevoTd.setAttribute("id", keys[key]); 
+        if (obj.hasOwnProperty(keys[key])) { //si tiene la propiedad
+          nuevoTd.textContent = obj[keys[key]]; //nueva celda: obj.propiedad
+        }
+        tr.appendChild(nuevoTd);
+      }
+      tbody.appendChild(tr);
+    })
+
+
+    return tbody;
+  }
+
+
+  function getKeys(arrayObjetos) {
+    const keys = new Array();
+    arrayObjetos.forEach(obj => {
+      for (let key in obj) { 
+        if (!keys.includes(key)) {
+          keys.push(key); 
+        }
+      }
+    })
+
+
+    return keys;
+  }
+
+
+  function cargarTabla(arrayObjetos) {
+    $("divTabla").firstChild.remove();
+    $("divTabla").appendChild(crearTabla(arrayObjetos));
+  }
+
+  function ObtenerTablaActual() {
+    let tablaActual = filtrarLista();
+    return tablaActual;
+  }
+
+  function actualizarColumnas(listaFiltrada) {
+
+    const tabla = $("divTabla").firstChild;
+    let divCheckboxes = $("divCheckboxes");
+    let elementos = divCheckboxes.getElementsByTagName("input"); 
+
+    Array.from(elementos).forEach(check => {
+
+      const th = tabla.querySelectorAll(`th#${check.value}`);
+      const td = tabla.querySelectorAll(`td#${check.value}`);
+
+      if (th) {
+        const columnaVisible = listaFiltrada.some(persona => persona[check.value] !== "");
+        th.forEach(th => {
+          th.style.display = check.checked ? "table-cell" : "none";
+        })
+      }
+
+      if (td) {
+        td.forEach(td => {
+          td.style.display = check.checked ? "table-cell" : "none";
+        })
+      }
+
+    });
+  }
+
+
+
+
+
+
+
+  /********************************************filtrar*************************************************/
+  $("comboBox").addEventListener("change", () => {
+
+    let listaFiltrada = filtrarLista();
+    cargarTabla(listaFiltrada);
+    actualizarColumnas(listaFiltrada);
+  }
+  );
+
+  function filtrarLista() {
+    let filtrarPor = $("comboBox").value;
+    let nuevoArray = new Array();
+
+    for (let i = 0; i < arrayPersonas.length; i++) {
+      let persona = arrayPersonas[i];
+      if (filtrarPor === "heroes") {
+
+        nuevoArray = arrayPersonas.filter(esHeroe);
+      }
+      else if (filtrarPor === "villanos") {
+
+        nuevoArray = arrayPersonas.filter(esVillano);
+      }
+      else {
+        nuevoArray = arrayPersonas;
+      }
+    }
+
+    return nuevoArray;
+  }
+
+
+
+  function esHeroe(elemento, indice, vector) {
+    return elemento instanceof Heroe;
+  }
+
+  function esVillano(elemento, indice, vector) {
+    return elemento instanceof Villano;
+  }
+
+
+
+
+
+ /*****************************************Calcular*****************************************************************/
+  $("btnCalcular").addEventListener("click", () => {
+    let personas = ObtenerTablaActual();
+
+    let cantidadPersonas = personas.length;
+    let sumaEdades = personas.reduce((total, persona) => {
+      return total + parseInt(persona.edad);
+    }, 0);
+
+    edadPromedio = sumaEdades / cantidadPersonas;
+
+    inputEdadProm = $("inputEdadProm");
+    inputEdadProm.value = edadPromedio.toFixed(2);
+
+  });
+
+
+
+  /*****************************************Ordenar*****************************************************************/
+  $("divTabla").addEventListener("click", () => {
+    if (event.target.tagName === "BUTTON") {
+      let listaOrdenada = new Array();
+      let tablaActual = ObtenerTablaActual();
+
+      
+      if (event.target.id === "btnedad") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => parseInt(a.edad) - parseInt(b.edad));
+      }
+      else if (event.target.id === "btnid") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => a.id - b.id);
+      }
+      else if (event.target.id === "btnnombre") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => a.nombre.localeCompare(b.nombre));
+      }
+      else if (event.target.id === "btnapellido") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => a.apellido.localeCompare(b.apellido));
+      }
+      else if (event.target.id === "btnciudad") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => {
+          if (a.ciudad && b.ciudad ) {
+            return a.ciudad .localeCompare(b.ciudad );
+          } else if (a.ciudad ) {
+            return -1;
+          } else if (b.ciudad ) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+      
+      }
+
+      else if (event.target.id === "btnalterego") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => {
+          if (a.alterego && b.alterego) {
+            return a.alterego.localeCompare(b.alterego);
+          } else if (a.alterego) {
+            return -1;
+          } else if (b.alterego) {
+            return 1;
+          } else {
+            return 0; 
+          }
+        });
+      }
+
+
+      else if (event.target.id === "btnpublicado") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => parseInt(a.publicado) - parseInt(b.publicado));
+      }
+      else if (event.target.id === "btnasesinatos") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => parseInt(a.asesinatos) - parseInt(b.asesinatos));
+      }
+      else if (event.target.id === "btnrobos") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => parseInt(a.robos) - parseInt(b.robos));
+      }
+      else if (event.target.id === "btnenemigo") {
+        listaOrdenada = tablaActual.map(persona => ({ ...persona })).sort((a, b) => {
+          if (a.enemigo && b.enemigo) {
+            return a.enemigo.localeCompare(b.enemigo);
+          } else if (a.enemigo) {
+            return -1;
+          } else if (b.enemigo) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+      }
+
+    
+      reestablecerCheckboxes();
+      cargarTabla(listaOrdenada);
+
+    }
+    
+  });
+
+   
+  function reestablecerCheckboxes()
+  {
+    let divCheckboxes = $("divCheckboxes");
+    let elementos = divCheckboxes.getElementsByTagName("input"); 
+
+    for (let i = 0; i < elementos.length; i++) {
+      const elemento = elementos[i];
+      elemento.checked = true;
+    }
+  }
+
+
+
+
+
+  function registrarEventosCheckboxes() {
+
+    let listaFiltrada = filtrarLista();  
+    let divCheckboxes = $("divCheckboxes");
+    let elementos = divCheckboxes.getElementsByTagName("input"); 
+
+    for (let i = 0; i < elementos.length; i++) {
+      const elemento = elementos[i];
+      elemento.addEventListener("change", function () {
+        actualizarColumnas(listaFiltrada);
+      });
+    }
+  }
+
+
+
+
+
+
+
+  $("tipoPersona").addEventListener("change", (e) => {
+
+
+    let opcionSeleccionada = $("tipoPersona").value;
+  
+    if (opcionSeleccionada === "Villano") {
+
+      $("divalterEgo").style.display = "none";
+      $("divciudad").style.display = "none";
+      $("divpublicado").style.display = "none";
+      $("divrobos").style.display = "block";
+      $("divasesinatos").style.display = "block";
+      $("divenemigo").style.display = "block";
+    }
+    if (opcionSeleccionada === "Heroe") {
+      
+      $("divalterEgo").style.display = "block";
+      $("divciudad").style.display = "block";
+      $("divpublicado").style.display = "block";
+      $("divrobos").style.display = "none";
+      $("divasesinatos").style.display = "none";
+      $("divenemigo").style.display = "none";
+
+    }
+
+  })
+
+
+
+   /*****************************************ABM*****************************************************************/
+  $("btnAgregar").addEventListener("dblclick", () => {
+
+    $("FrmDatos").style.display = 'none';
+    $("FormularioAbm").style.display = 'block';
+    $("tipoPersona").disabled = false;
+
+  })
+
+  $("btnAlta").addEventListener("click", Alta);
+
+  $("btnModificar").addEventListener("click", Modificar);
+
+
+  function Alta() {
+    let id = $("inptId").value;
+    let nombre = $("inptNombre").value;
+    let apellido = $("inptApellido").value;
+    let edad = parseInt($("inptEdad").value);
+    let tipo = $("tipoPersona").value;
+    let ciudad = $("inptciudad").value;
+    let alterego = $("inptalterEgo").value;
+    let publicado = ($("inptpublicado").value);
+    let robos = ($("inptrobos").value);
+    let asesinatos = $("inptasesinatos").value;
+    let enemigo = $("inptenemigo").value;
+
+    if (!contieneSoloLetras(nombre) || !contieneSoloLetras(apellido) || esNuloOVacio(nombre) || esNuloOVacio(apellido) || !contieneSoloNumeros(edad) || numeroNulo(edad) ) {
+      return;
+    }
+
+
+    if (tipo === 'Villano') {
+      if (esNuloOVacio(robos) || !contieneSoloNumeros(robos) || esNuloOVacio(asesinatos) || !contieneSoloNumeros(asesinatos) || esNuloOVacio(enemigo) || !contieneSoloLetras(enemigo) || !esMayorACero(robos) || !esMayorACero(asesinatos)) {
+        return;
+      }
+    }
+    else if (tipo === 'Heroe') {
+      if (esNuloOVacio(alterego) || !contieneSoloLetras(alterego) || esNuloOVacio(ciudad) || !contieneSoloLetras(ciudad) || esNuloOVacio(publicado) || !contieneSoloNumeros(publicado) || !valorMayorA(publicado, 1940)) {
+        return;
+      }
+    }
+
+    if (!IdExistente(id)) {
+      id = arrayPersonas.reduce((max, obj) => (obj.id > max ? obj.id : max), arrayPersonas[0].id) + 1; 
+      let persona;
+      if (tipo === 'Villano') {
+        persona = new Villano(id, nombre, apellido, edad, enemigo, robos, asesinatos);
+      }
+      else {
+        persona = new Heroe(id, nombre, apellido, edad, alterego, ciudad, publicado);
+      }
+
+      arrayPersonas.push(persona);
+    }
+
+
+    cargarTabla(arrayPersonas);
+    $("FrmDatos").style.display = 'block';
+    LimpiarFormulario();
+
+
+  }
+
+
+
+  function Modificar() {
+    let id = $("inptId").value;
+    let nombre = $("inptNombre").value;
+    let apellido = $("inptApellido").value;
+    let edad = $("inptEdad").value;
+    let tipo = $("tipoPersona").value;
+    let ciudad = $("inptciudad").value;
+    let alterego = $("inptalterEgo").value;
+    let publicado = ($("inptpublicado").value);
+    let robos = $("inptrobos").value;
+    let asesinatos = $("inptasesinatos").value;
+    let enemigo = $("inptenemigo").value;
+
+    if (!contieneSoloLetras(nombre) || !contieneSoloLetras(apellido) || esNuloOVacio(nombre) || esNuloOVacio(apellido) || numeroNulo(edad) || !contieneSoloNumeros(edad)) {
+      return;
+    }
+
+    if (tipo === 'Heroe') {
+      if (esNuloOVacio(alterego) || !contieneSoloLetras(alterego) || esNuloOVacio(ciudad) || !contieneSoloLetras(ciudad) || esNuloOVacio(publicado) || !contieneSoloNumeros(publicado) || !valorMayorA(publicado, 1940)) {
+        return;
+      }
+    }
+    else if(tipo === 'Villano'){
+      if (esNuloOVacio(robos) || !contieneSoloNumeros(robos) || esNuloOVacio(asesinatos) || !contieneSoloNumeros(asesinatos) || esNuloOVacio(enemigo) || !contieneSoloLetras(enemigo) || !esMayorACero(robos) || !esMayorACero(asesinatos)) {
+        return;
+      }
+    }
+    
+
+    if (IdExistente(id)) {
+
+      let personaModificada = arrayPersonas.find(persona => persona.id === parseInt(id));
+      personaModificada.id = parseInt(id);
+      personaModificada.nombre = nombre;
+      personaModificada.apellido = apellido;
+      personaModificada.edad = edad;
+      if (tipo === 'Heroe') {
+
+        personaModificada.alterego = alterego;
+        personaModificada.ciudad = ciudad;
+        personaModificada.publicado = publicado;
+      }
+      else {
+
+        personaModificada.asesinatos = asesinatos;
+        personaModificada.robos = robos;
+        personaModificada.enemigo = enemigo;
+      }
+
+      const index = arrayPersonas.indexOf(personaModificada);
+      arrayPersonas[index] = personaModificada;
+
+    }
+    
+
+    document.getElementById("tipoPersona").disabled = false;
+    cargarTabla(arrayPersonas);
+    $("FrmDatos").style.display = 'block';
+    LimpiarFormulario();
+  }
+
+
+
+  $("btnBaja").addEventListener("click", baja);
+
+
+
+  function baja(){
+    let id = $("inptId").value;
+    let personasFiltradas = arrayPersonas.filter(persona => persona.id !== parseInt(id));
+
+    if (personasFiltradas.length < arrayPersonas.length) {
+    arrayPersonas = personasFiltradas;
+    cargarTabla(arrayPersonas);
+    $("FrmDatos").style.display = 'block';
+    LimpiarFormulario();
+    }
+  }
+
+
+  
+
+  function traerPersonaPorId(id) {
+    let personas = ObtenerTablaActual();
+    for (const persona of personas) {
+      if (persona.id === id) {
+        return persona;
+      }
+    }
+
+  }
+
+  function IdExistente(id) {
+    let personas = ObtenerTablaActual();
+
+    for (const persona of personas) {
+
+      if (parseInt(persona.id) == parseInt(id)) {
+
+        return true;
+      }
+    }
+  }
+
+
+
+  $("btnCancelar").addEventListener("click", () => {
+    $("FrmDatos").style.display = 'block';
+    LimpiarFormulario();
+  });
+
+
+  function LimpiarFormulario() {
+    let select = $("tipoPersona");
+    select.value = select.options[0].value;
+
+    const inputs = $("FormularioAbm").getElementsByTagName("input");
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].value = "";
+    }
+
+    $("FormularioAbm").style.display = 'none';
+  }
+
+
+
+
+
+  $("divTabla").addEventListener("dblclick", function (event) {
+
+    if (event.target.tagName === "TD") {
+      const fila = event.target.parentNode; // obtenemos la fila correspondiente a la celda que se hizo clic
+      const celdas = fila.cells; // obtenemos las celdas de la fila
+
+      let id = parseInt(celdas[0].textContent);
+      let persona = traerPersonaPorId(id);
+      
+
+      $("FrmDatos").style.display = 'none';
+      $("FormularioAbm").style.display = 'block';
+      $("inptId").value = persona.id;
+      $("inptNombre").value = persona.nombre;
+      $("inptApellido").value = persona.apellido;
+      $("inptEdad").value = persona.edad;
+
+      if (persona instanceof Villano) {
+        $("tipoPersona").value = "Villano";
+        $("inptrobos").value = persona.robos;
+        $("inptasesinatos").value = persona.asesinatos;
+        $("inptenemigo").value = persona.enemigo;
+        $("divciudad").style.display = "none";
+        $("divalterEgo").style.display = "none";
+        $("divpublicado").style.display = "none";
+        $("divrobos").style.display = "block";
+        $("divasesinatos").style.display = "block";
+        $("divenemigo").style.display = "block";
+        document.getElementById("tipoPersona").disabled = true;
+
+      }
+      else if (persona instanceof Heroe) {
+        $("divrobos").style.display = "none";
+        $("divasesinatos").style.display = "none";
+        $("divenemigo").style.display = "none";
+        $("divciudad").style.display = "block";
+        $("divalterEgo").style.display = "block";
+        $("divpublicado").style.display = "block";
+        $("tipoPersona").value = "Heroe";
+        $("inptalterEgo").value = persona.alterego;
+        $("inptciudad").value = persona.ciudad;
+        $("inptpublicado").value = persona.publicado;
+        document.getElementById("tipoPersona").disabled = true;
+      }
+
+
+
+
+
+
+    }
+
+
+
+  });
+
+
+
+
+
+</script>
+
+</html>
